@@ -10,7 +10,7 @@ import Home from './pages/Dashboard/Home';
 import Income from './pages/Dashboard/Income';
 import Expense from './pages/Dashboard/Expense';
 import RecentTransactionsPage from './pages/Transactions/RecentTransactionsPage';
-import UserProvider from './context/UserContext';
+import UserProvider from './context/userContext';
 
 
 const App = () => {
