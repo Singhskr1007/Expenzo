@@ -14,11 +14,10 @@ const app=express();
 // Middleware to handle cors
 
 app.use(cors({
-  origin: "https://expenzo-frontend-vwy2.onrender.com",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
+    origin: process.env.CLIENT_URL || "*",
+    methods : ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders : ["Content-Type", "Authorization"],
 }));
-
 
 app.use(express.json());
 
