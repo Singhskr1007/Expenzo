@@ -19,7 +19,7 @@ router.post("/upload-image",upload.single("image"),(req,res) =>{
     {
         return res.status(400).json({message:"No File Uploaded"});
     }
-    const imageUrl=`//${req.get('host')}/uploads/${filename}`;
+    const imageUrl=`https://${req.get('host')}/uploads/${filename}`;
     res.status(200).json({imageUrl});
 });
 
