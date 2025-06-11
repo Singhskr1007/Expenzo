@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Income = require('../models/Income');
 const Expense = require('../models/Expense');
-const { protect } = require('../middleware/authMiddleware'); 
+const { protect } = require('../middleware/authMiddleware');
 
 // GET /transactions/recent
-router.get("/recent", async (req, res) => {
+router.get("/recent", protect, async (req, res) => {
   try {
-    const incomes = await Income.find().sort({ date: -1 }).limit(10);
-    const expenses = await Expense.find().sort({ date: -1 }).limit(10);
+    const incomes = await Income.find({ userId: req.user._id }).sort({ date: -1 }).limit(10);
+    const expenses = await Expense.find({ userId: req.user._id }).sort({ date: -1 }).limit(10);
 
     const combined = [
       ...incomes.map(item => ({ ...item._doc, type: "income" })),
