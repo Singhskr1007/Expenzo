@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Income = require('../models/Income');
 const Expense = require('../models/Expense');
+const { protect } = require('../middleware/authMiddleware'); 
 
 // GET /transactions/recent
 router.get("/recent", async (req, res) => {
