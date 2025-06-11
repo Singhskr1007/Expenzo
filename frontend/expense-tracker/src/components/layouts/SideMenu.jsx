@@ -3,6 +3,7 @@ import { SIDE_MENU_DATA } from '../../utils/data';
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import CharAvatar from '../Cards/CharAvatar';
+import { toast } from "react-toastify";
 
 const SideMenu = ({ activeMenu, open = false, isMobile = false }) => {
   const { user, clearUser } = useContext(UserContext);
@@ -12,6 +13,7 @@ const SideMenu = ({ activeMenu, open = false, isMobile = false }) => {
     if (route === 'logout') {
       clearUser();
       localStorage.clear();
+      toast.success("Successfully logged out");
       navigate('/login');
     } else {
       navigate(route);
