@@ -92,6 +92,8 @@ Create a .env file in the backend folder with the following:
       Vite will show a local development server URL, usually:
       🌐 http://localhost:5173
 
+Live Website Link - https://expenzo-frontend-j7sw.onrender.com
+
 
 
 
