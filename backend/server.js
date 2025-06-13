@@ -32,6 +32,9 @@ app.use("/api/v1/expense",expenseRoutes);
 app.use("/api/v1/dashboard",dashboardRoutes); 
 app.use("/api/v1/transactions", transactionRoutes);
 
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 const PORT=process.env.PORT || 5000 ;
 
