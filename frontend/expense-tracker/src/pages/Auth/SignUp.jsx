@@ -87,14 +87,16 @@ const SignUp = () => {
             Join Us Today By Entering Your Details Below.
           </p>
 
-          <form onSubmit={handleSignUp} className="space-y-4">
+          <form onSubmit={handleSignUp} className="flex flex-col gap-4">
 
-            {/* ✅ FIXED: Add proper spacing to prevent overlap */}
-            <div className="flex justify-center mb-4">
+            {/* Profile Image */}
+            <div className="flex justify-center">
               <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            {/* Stacked inputs on mobile, 2-column grid on md+ */}
+            <div className="flex flex-col gap-4 md:grid md:grid-cols-2">
+
               <Input
                 value={fullname}
                 onChange={({ target }) => setFullName(target.value)}
@@ -111,7 +113,8 @@ const SignUp = () => {
                 type="text"
               />
 
-              <div className='col-span-2'>
+              {/* Full width password input */}
+              <div className='md:col-span-2'>
                 <Input
                   value={password}
                   onChange={({ target }) => setPassword(target.value)}
@@ -122,13 +125,15 @@ const SignUp = () => {
               </div>
             </div>
 
-            {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
+            {/* Error Message */}
+            {error && <p className='text-red-500 text-xs'>{error}</p>}
 
+            {/* Sign Up Button */}
             <button type='submit' className='btn-primary w-full'>
               SIGN-UP
             </button>
 
-            <p className='text-[13px] text-slate-800 mt-3 text-center'>
+            <p className='text-[13px] text-slate-800 text-center'>
               Already have an account?{" "}
               <Link className="font-medium text-primary underline" to="/login">
                 Login
