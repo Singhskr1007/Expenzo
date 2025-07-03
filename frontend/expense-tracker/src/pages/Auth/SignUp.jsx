@@ -61,6 +61,7 @@ const SignUp = () => {
         localStorage.setItem('token', token);
         updateUser(user);
         toast.success("Sign-Up Successful!");
+
         setTimeout(() => {
           navigate("/dashboard");
         }, 500);
@@ -86,10 +87,10 @@ const SignUp = () => {
             Join Us Today By Entering Your Details Below.
           </p>
 
-          <form onSubmit={handleSignUp}>
+          <form onSubmit={handleSignUp} className="space-y-4">
 
-            {/* Limit image selector height to avoid push-down on small screens */}
-            <div className='mb-4'>
+            {/* ✅ FIXED: Add proper spacing to prevent overlap */}
+            <div className="flex justify-center mb-4">
               <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
             </div>
 
@@ -100,7 +101,6 @@ const SignUp = () => {
                 label="Full Name"
                 placeholder="Enter Full Name"
                 type="text"
-                autoComplete="name"
               />
 
               <Input
@@ -109,7 +109,6 @@ const SignUp = () => {
                 label="Email Address"
                 placeholder="Enter E-Mail Address"
                 type="text"
-                autoComplete="email"
               />
 
               <div className='col-span-2'>
@@ -119,18 +118,17 @@ const SignUp = () => {
                   label="Password"
                   placeholder="Enter Password"
                   type="password"
-                  autoComplete="new-password"
                 />
               </div>
             </div>
 
-            {error && <p className='text-red-500 text-xs pb-2.5 mt-2'>{error}</p>}
+            {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
 
-            <button type='submit' className='btn-primary mt-4 w-full'>
+            <button type='submit' className='btn-primary w-full'>
               SIGN-UP
             </button>
 
-            <p className='text-[13px] text-slate-800 mt-3'>
+            <p className='text-[13px] text-slate-800 mt-3 text-center'>
               Already have an account?{" "}
               <Link className="font-medium text-primary underline" to="/login">
                 Login
